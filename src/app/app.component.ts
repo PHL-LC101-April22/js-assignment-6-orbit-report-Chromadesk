@@ -19,7 +19,6 @@ export class AppComponent {
 
 		window.fetch(satellitesUrl).then(function (response) {
 			response.json().then(function (data) {
-
 				let fetchedSatellites = data.satellites;
 				// loop over satellites
 				for(let i=0; i < fetchedSatellites.length; i++) {
@@ -42,7 +41,11 @@ export class AppComponent {
 		searchTerm = searchTerm.toLowerCase();
 		for(let i=0; i < this.sourceList.length; i++) {
 			let name = this.sourceList[i].name.toLowerCase();
+			let type = this.sourceList[i].type.toLowerCase();
 			if (name.indexOf(searchTerm) >= 0) {
+				matchingSatellites.push(this.sourceList[i]);
+			}
+			if (type.indexOf(searchTerm) >= 0) {
 				matchingSatellites.push(this.sourceList[i]);
 			}
 		}

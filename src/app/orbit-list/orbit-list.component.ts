@@ -14,7 +14,6 @@ export class OrbitListComponent implements OnInit {
 
   ngOnInit() {
   }
-
 	sort(column: string): void {
 		// array.sort modifies the array, sorting the items based on the given compare function
 		this.satellites.sort(function (a: Satellite, b: Satellite): number {
@@ -27,4 +26,13 @@ export class OrbitListComponent implements OnInit {
 		});
 	}
 
+	preventDuplicates(satellite: Satellite[]) {
+		let typeList = [];
+		for(let sat of satellite) {
+			if (!typeList.includes(sat)) {
+				typeList.push(sat)
+			}
+		}
+		return typeList;
+	 }
 }
