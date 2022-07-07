@@ -26,4 +26,13 @@ export class OrbitListComponent implements OnInit {
 		});
 	}
 
+	preventDuplicates(satellite: Satellite[]) {
+		let typeList = [];
+		for(let sat of satellite) {
+			if (!typeList.includes(sat)) {
+				typeList.push(sat)
+			}
+		}
+		return typeList;
+	 }
 }
