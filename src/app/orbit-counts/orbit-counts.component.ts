@@ -26,6 +26,15 @@ export class OrbitCountsComponent implements OnInit {
 	}
 	return count;
  }
+ typeLogger(satellite: Satellite[]) {
+	let typeList = [];
+	for(let sat of satellite) {
+		if (!typeList.includes(sat.type)) {
+			typeList.push(sat.type)
+		}
+	}
+	return typeList;
+ }
 
 
 }
